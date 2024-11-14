@@ -10,7 +10,8 @@ public class LookAtPlayer : MonoBehaviour
     [SerializeField] private Transform torreta, player;
     
     [SerializeField] private float airPlaneHeight = 10.0f;
-    
+    [SerializeField] private GameObject projectile;
+
     [SerializeField] private float projectileSpeed = 10.0f;
 
 
