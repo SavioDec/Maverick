@@ -9,13 +9,9 @@ public class LookAtPlayer : MonoBehaviour
     }
     [SerializeField] private Transform torreta, player;
     
-    [SerializeField] private float airPlaneHeight = 10.0f;
-    [SerializeField] private GameObject projectile;
-
-    [SerializeField] private float projectileSpeed = 10.0f;
-
-
-    [SerializeField] private GameObject muzzleFlash;
+    // [SerializeField] private GameObject BulletPrefab;
+    // [SerializeField] private Transform bulletSpawnPoint;
+    // [SerializeField] private float bulletSpeed;
     
 
     
@@ -26,16 +22,7 @@ public class LookAtPlayer : MonoBehaviour
 
         if(player != null){
            trackPlane();
-            if(player.position.y >= airPlaneHeight){
-                shootPlane();
-                muzzleFlash.SetActive(true);
-
-            }
-            else
-            {
-                muzzleFlash.SetActive(false);
-
-            }
+            
         }
     }
 
@@ -44,13 +31,13 @@ public class LookAtPlayer : MonoBehaviour
         
     }
     
-    void shootPlane()
-    {
-        Debug.Log("atirando");
-        GameObject launchedObject = Instantiate(projectile, transform.position, transform.rotation);
-        launchedObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 (0, projectileSpeed, 0));
-        
-    }
+    // void shootPlane()
+    // {
+    //     Debug.Log("atirando");
+    //     var bullet = Instantiate(BulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+    //     bullet.GetComponent<Rigidbody>().linearVelocity = bullet.transform.forward * bulletSpeed;
+    //     
+    // }
 
     
     

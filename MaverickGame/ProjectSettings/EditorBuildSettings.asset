@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prototype/Scenes/Creditos.unity
     guid: e755fcb997c20a54286d8ffb35936512
+  - enabled: 1
+    path: Assets/Prototype/Scenes/GameOver.unity
+    guid: 2d0347174000f464f8c4bb5e2e3fe54b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

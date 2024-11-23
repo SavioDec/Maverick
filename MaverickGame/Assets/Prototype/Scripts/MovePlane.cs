@@ -12,6 +12,8 @@ public class MovePlane : MonoBehaviour
     [Tooltip("o quao responsivo o avião é ao rolar, inclinar ou rotacionar")]
     [SerializeField]private float responsiviness = 10f;
 
+    [SerializeField] private float lift = 135f;
+
     private float throttle;
     private float roll;
     private float pitch;
@@ -54,10 +56,13 @@ public class MovePlane : MonoBehaviour
         rb.AddTorque(transform.right * pitch * responseModifier);
         rb.AddTorque(-transform.forward * roll * responseModifier);
         
+        rb.AddForce(Vector3.up * rb.linearVelocity.magnitude * lift);
+        
     }
 
     private void UpdateHud(){
-        hud.text = "Velocidade: " + (rb.linearVelocity.magnitude * 3.6f).ToString("F0") + "Km/h\n";
+        hud.text = "Acelerador: " + throttle.ToString("F0") + "%\n";
+        hud.text += "Velocidade: " + (rb.linearVelocity.magnitude * 3.6f).ToString("F0") + "Km/h\n";
         hud.text += "Altitude: " + rb.position.y.ToString("F0") + "m";
     }
 
