@@ -1,53 +1,44 @@
 using UnityEngine;
 
-
 public class LookAtPlayer : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
     }
-
     [SerializeField] private Transform torreta, player;
-
-    [SerializeField] private float airPlaneHeight = 10.0f;
     
-    [SerializeField] private GameObject projectile, gun;
+    // [SerializeField] private GameObject BulletPrefab;
+    // [SerializeField] private Transform bulletSpawnPoint;
+    // [SerializeField] private float bulletSpeed;
+    
 
-    [SerializeField] private float projectileSpeed = 300.0f;
-
-
-    [SerializeField] private GameObject muzzleFlash;
-
-
+    
     // Update is called once per frame
 
     void Update()
     {
-        if (player != null)
-        {
-            trackPlane();
-            if (player.position.y >= airPlaneHeight)
-            {
-                shootPlane();
-                muzzleFlash.SetActive(true);
-            }
-            else
-            {
-                muzzleFlash.SetActive(false);
-            }
+
+        if(player != null){
+           trackPlane();
+            
         }
     }
 
-    void trackPlane()
-    {
+    void trackPlane(){
         torreta.transform.LookAt(player.position);
+        
     }
+    
+    // void shootPlane()
+    // {
+    //     Debug.Log("atirando");
+    //     var bullet = Instantiate(BulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+    //     bullet.GetComponent<Rigidbody>().linearVelocity = bullet.transform.forward * bulletSpeed;
+    //     
+    // }
 
-    void shootPlane()
-    {
-        Debug.Log("atirando");
-        GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 10);
-    }
+    
+    
 }
