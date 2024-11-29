@@ -235,8 +235,8 @@ MonoBehaviour:
   BulletPrefab: {fileID: 892224410299554477, guid: 1acd05132d2c93743ab20d788d9bd32d, type: 3}
   bulletSpawnPoint: {fileID: 7004885666195829264}
   bulletSpeed: 50
-  playerTransform: {fileID: 0}
-  airPlaneHeight: 50
+  playerTransform: {fileID: 2169164036521531806, guid: 2e75eb6ceff0bad42a9a97767741b1bd, type: 3}
+  airPlaneHeight: 60
   cooldownTime: 0.1
 --- !u!1 &2210807083991053317
 GameObject:

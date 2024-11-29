@@ -6,7 +6,7 @@ public class MovePlane : MonoBehaviour
 {
     [Header("Plane Status")]
     [Tooltip("o quanto o acelerador sobe ou desce")]
-    [SerializeField] private float throttleIncrement = 0.1f;
+    [SerializeField] private float throttleIncrement = 0.6f;
     [Tooltip("Maximo de aceleração quanto o acelerador esta em 100%")]
     [SerializeField] private float maxThrottle = 200f;
     [Tooltip("o quao responsivo o avião é ao rolar, inclinar ou rotacionar")]
@@ -27,6 +27,7 @@ public class MovePlane : MonoBehaviour
 
     Rigidbody rb;
     [SerializeField] TextMeshProUGUI hud;
+    [SerializeField] TextMeshProUGUI instructions;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -48,6 +49,7 @@ public class MovePlane : MonoBehaviour
     private void Update(){
         HandleInput();
         UpdateHud();
+        InstructionsHud();
     }
 
     private void FixedUpdate(){
@@ -60,6 +62,14 @@ public class MovePlane : MonoBehaviour
         
     }
 
+    private void InstructionsHud()
+    {
+        instructions.text = "as torretas começarão atirar ao ultrapassar 60 metros ";
+        if (rb.position.y > 1)
+        {
+            instructions.text = "";
+        }
+    }
     private void UpdateHud(){
         hud.text = "Acelerador: " + throttle.ToString("F0") + "%\n";
         hud.text += "Velocidade: " + (rb.linearVelocity.magnitude * 3.6f).ToString("F0") + "Km/h\n";
